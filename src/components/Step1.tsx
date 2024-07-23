@@ -6,6 +6,8 @@ import Footer from "./Footer";
 import CircleButton from "./CircleButton";
 import CircleButtonText from "./CircleButtonText";
 import "./styles.css";
+import { SideBar } from "./Sidebar";
+import { Input } from "./Input";
 
 const Step1: React.FC = () => {
   const { formData, setFormData } = useFormContext();
@@ -37,61 +39,46 @@ const Step1: React.FC = () => {
     if (Object.keys(validationErrors).length === 0) {
       setFormData({ ...formData, step1: { name, email, phone } });
       setActiveStep(2);
-      navigate('/step2');
+      navigate("/step2");
     }
   };
 
   return (
     <div className="form-container">
-      <div className="sidebar">
-        <ul>
-          <li className={activeStep === 1 ? "active" : ""}>
-            <CircleButton number={1} isActive={activeStep === 1} />
-            <CircleButtonText text="YOUR INFO" subtext="STEP 1" />
-          </li>
-          <li className={activeStep === 2 ? "active" : ""}>
-            <CircleButton number={2} isActive={activeStep === 2} />
-            <CircleButtonText text="SELECT PLAN" subtext="STEP 2" />
-          </li>
-          <li className={activeStep === 3 ? "active" : ""}>
-            <CircleButton number={3} isActive={activeStep === 3} />
-            <CircleButtonText text="ADD-ONS" subtext="STEP 3" />
-          </li>
-          <li className={activeStep === 4 ? "active" : ""}>
-            <CircleButton number={4} isActive={activeStep === 4} />
-            <CircleButtonText text="SUMMARY" subtext="STEP 4" />
-          </li>
-        </ul>
-      </div>
+      <SideBar activeStep={activeStep} />
       <div className="form-content">
-        <Header />
+        <Header
+          title="Personal info"
+          subtitle="Please provide your name, email address, and phone number."
+        />
         <form onSubmit={handleNext}>
-          <label>Name</label>
-          <input
-            type="text"
+          <Input
+            label="Name"
             value={name}
+            type="text"
             onChange={(e) => setName(e.target.value)}
             placeholder="e.g. Stephen King"
+            error={errors.name}
           />
-          {errors.name && <p className="error">{errors.name}</p>}
 
-          <label>Email Address</label>
-          <input
-            type="email"
+          <Input
+            label="Email Address"
             value={email}
+            type="email"
             onChange={(e) => setEmail(e.target.value)}
             placeholder="e.g. stephenking@lorem.com"
+            error={errors.email}
           />
-          {errors.email && <p className="error">{errors.email}</p>}
 
-          <label>Phone Number</label>
-          <input
-            type="tel"
+          <Input
+            label="Phone Number"
             value={phone}
+            type="tel"
             onChange={(e) => setPhone(e.target.value)}
             placeholder="e.g. +1 234 567 890"
+            error={errors.phone}
           />
-          {errors.phone && <p className="error">{errors.phone}</p>}
+
           <Footer />
         </form>
       </div>

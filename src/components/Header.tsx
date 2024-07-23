@@ -1,10 +1,16 @@
+// src/components/Header.tsx
 import React from 'react';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  title: string;
+  subtitle: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
   return (
     <div className="header">
-      <h2>Personal Info</h2>
-      <p>Please provide your name, email address, and phone number.</p>
+      <h2>{title}</h2>
+      <p>{subtitle}</p>
     </div>
   );
 }
