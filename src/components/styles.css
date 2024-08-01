@@ -53,14 +53,13 @@ body {
 
 .form-container {
   display: flex;
-  height: 650px;
+  /* height: 650px; */
   max-width: 1280px;
   margin-right: 150px;
   padding: 15px;
   background: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  overflow: hidden;
   width: 100%;
 }
 
@@ -179,7 +178,7 @@ body {
 .footer {
   display: flex;
   justify-content: flex-end;
-  padding-top: 120px;
+  padding-top: 80px;
   background: white;
 }
 
@@ -208,16 +207,17 @@ body {
 
 .card {
   flex: 1;
-  margin: 20px 20px 20px 20px;
+  margin: 0px 10px 10px 10px;
   border: 2px solid #ccc;
   border-radius: 10px;
-  text-align: center;
+  text-align: left;
   cursor: pointer;
 }
 
 .card img {
-  height: 50px;
+  height: 35px;
   margin-bottom: 10px;
+  align-items: left;
 }
 
 .card.selected {
@@ -226,17 +226,59 @@ body {
 }
 
 .billing-toggle {
-  display: flex;
-  justify-content: center;
-  background-color: #F8F9FE;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.billing-toggle label {
-  margin: 0 10px;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fe;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .billing-toggle span {
+    padding: 10px 50px;
+    cursor: pointer;
+  }
+  
+  .billing-toggle .active {
+    font-weight: bold;
+    color: #03285b;
+  }
+  
+  .billing-toggle .toggle-button {
+    position: absolute;
+    width: 50px;
+    height: 25px;
+    background-color: #03285b;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    padding: 2px;
+    transition: all 0.3s;
+  }
+  
+  .billing-toggle .toggle-button.yearly {
+    justify-content: flex-start;
+  }
+  
+  .billing-toggle .toggle-button .knob {
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: all 0.3s;
+  }
+  
+  .billing-toggle .toggle-button .knob.monthly {
+    transform: translateX(0);
+  }
+  
+  .billing-toggle .toggle-button .knob.yearly {
+    transform: translateX(25px);
+  }  
 
 .footer-buttons {
   display: flex;
@@ -244,11 +286,11 @@ body {
 }
 
 .back-btn {
-  padding: 15px 20px;
   background: transparent;
   color: #03285b;
   border: none;
   cursor: pointer;
+  justify-content:start;
 }
 
 .next-step-btn {

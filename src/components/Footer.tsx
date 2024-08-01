@@ -1,8 +1,14 @@
 import React from 'react';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  showBackButton: boolean;
+  onBack?: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ showBackButton, onBack }) => {
   return (
     <div className="footer">
+      {showBackButton && <button type="button" className="back-btn" onClick={onBack}>Go Back</button>}
       <button type="submit" className="next-step-btn">Next Step</button>
     </div>
   );

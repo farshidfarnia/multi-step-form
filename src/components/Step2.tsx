@@ -1,4 +1,3 @@
-// src/components/Step2.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormContext } from '../context/FormContext';
@@ -6,6 +5,11 @@ import Header from './Header';
 import Footer from './Footer';
 import CircleButton from './CircleButton';
 import CircleButtonText from './CircleButtonText';
+import PlanCard from './PlanCard';
+import BillingToggle from './BillingToggle';
+import arcadeIcon from '../assets/icons/arcade-icon.png';
+import advancedIcon from '../assets/icons/advanced-icon.png';
+import proIcon from '../assets/icons/pro-icon.png';
 import './styles.css';
 
 const Step2: React.FC = () => {
@@ -67,47 +71,34 @@ const Step2: React.FC = () => {
         <Header title="Select your plan" subtitle="You have the option of monthly or yearly billing." />
         <form onSubmit={handleNext}>
           <div className="plans">
-            <div className={`card ${plan === 'arcade' ? 'selected' : ''}`} onClick={() => handlePlanSelect('arcade')}>
-              <img src="/assets/icons/arcade-icon.png" alt="Arcade" />
-              <h3>Arcade</h3>
-              <p>$9/mo</p>
-            </div>
-            <div className={`card ${plan === 'advanced' ? 'selected' : ''}`} onClick={() => handlePlanSelect('advanced')}>
-              <img src="/path/to/advanced-icon.png" alt="Advanced" />
-              <h3>Advanced</h3>
-              <p>$12/mo</p>
-            </div>
-            <div className={`card ${plan === 'pro' ? 'selected' : ''}`} onClick={() => handlePlanSelect('pro')}>
-              <img src="/path/to/pro-icon.png" alt="Pro" />
-              <h3>Pro</h3>
-              <p>$15/mo</p>
-            </div>
+            <PlanCard
+              plan="arcade"
+              selectedPlan={plan}
+              handlePlanSelect={handlePlanSelect}
+              imgSrc={arcadeIcon}
+              title="Arcade"
+              price="$9/mo"
+            />
+            <PlanCard
+              plan="advanced"
+              selectedPlan={plan}
+              handlePlanSelect={handlePlanSelect}
+              imgSrc={advancedIcon}
+              title="Advanced"
+              price="$12/mo"
+            />
+            <PlanCard
+              plan="pro"
+              selectedPlan={plan}
+              handlePlanSelect={handlePlanSelect}
+              imgSrc={proIcon}
+              title="Pro"
+              price="$15/mo"
+            />
           </div>
           {errors.plan && <p className="error">{errors.plan}</p>}
-          <div className="billing-toggle">
-            <label>
-              <input
-                type="radio"
-                value="monthly"
-                checked={billing === 'monthly'}
-                onChange={() => setBilling('monthly')}
-              />
-              Monthly
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="yearly"
-                checked={billing === 'yearly'}
-                onChange={() => setBilling('yearly')}
-              />
-              Yearly
-            </label>
-          </div>
-          <div className="footer-buttons">
-            <button type="button" className="back-btn" onClick={handleBack}>Go Back</button>
-            <button type="submit" className="next-step-btn">Next Step</button>
-          </div>
+          <BillingToggle billing={billing} setBilling={setBilling} />
+          <Footer showBackButton onBack={handleBack} />
         </form>
       </div>
     </div>

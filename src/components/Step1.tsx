@@ -20,15 +20,9 @@ const Step1: React.FC = () => {
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
-    if (!name.trim()) newErrors.name = "This field is required";
-    if (!email.trim()) {
-      newErrors.email = "This field is required";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = "Email address is invalid";
-    }
-    if (!phone.trim()) {
-      newErrors.phone = "This field is required";
-    }
+    if (!name.trim()) newErrors.name = 'This field is required';
+    if (!email.trim()) newErrors.email = 'This field is required';
+    if (!phone.trim()) newErrors.phone = 'This field is required';
     return newErrors;
   };
 
@@ -78,8 +72,7 @@ const Step1: React.FC = () => {
             placeholder="e.g. +1 234 567 890"
             error={errors.phone}
           />
-
-          <Footer />
+          <Footer showBackButton={false} />
         </form>
       </div>
     </div>
