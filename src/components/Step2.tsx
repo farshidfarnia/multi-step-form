@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useFormContext } from '../context/FormContext';
 import Header from './Header';
 import Footer from './Footer';
-import CircleButton from './CircleButton';
-import CircleButtonText from './CircleButtonText';
+import { SideBar } from "./Sidebar";
 import PlanCard from './PlanCard';
 import BillingToggle from './BillingToggle';
 import arcadeIcon from '../assets/icons/arcade-icon.png';
@@ -47,26 +46,7 @@ const Step2: React.FC = () => {
 
   return (
     <div className="form-container">
-      <div className="sidebar">
-        <ul>
-          <li className={activeStep === 1 ? 'active' : ''}>
-            <CircleButton number={1} isActive={activeStep === 1} />
-            <CircleButtonText text="YOUR INFO" subtext="STEP 1" />
-          </li>
-          <li className={activeStep === 2 ? 'active' : ''}>
-            <CircleButton number={2} isActive={activeStep === 2} />
-            <CircleButtonText text="SELECT PLAN" subtext="STEP 2" />
-          </li>
-          <li className={activeStep === 3 ? 'active' : ''}>
-            <CircleButton number={3} isActive={activeStep === 3} />
-            <CircleButtonText text="ADD-ONS" subtext="STEP 3" />
-          </li>
-          <li className={activeStep === 4 ? 'active' : ''}>
-            <CircleButton number={4} isActive={activeStep === 4} />
-            <CircleButtonText text="SUMMARY" subtext="STEP 4" />
-          </li>
-        </ul>
-      </div>
+      <SideBar activeStep={activeStep} />
       <div className="form-content">
         <Header title="Select your plan" subtitle="You have the option of monthly or yearly billing." />
         <form onSubmit={handleNext}>

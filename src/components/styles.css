@@ -3,7 +3,9 @@
 /*
   1. Use a more-intuitive box-sizing model.
 */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 /*
@@ -24,26 +26,40 @@ body {
 /*
   5. Improve media defaults
 */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 /*
   6. Remove built-in form typography styles
 */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 /*
   7. Avoid text overflows
 */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 /*
   8. Create a root stacking context
 */
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
 
@@ -53,7 +69,7 @@ body {
 
 .form-container {
   display: flex;
-  /* height: 650px; */
+  height: 650px;
   max-width: 1280px;
   margin-right: 150px;
   padding: 15px;
@@ -64,7 +80,7 @@ body {
 }
 
 .sidebar {
-  width: 45%;
+  width: 288px;
   background: url("../assets/images/sidebar.png") no-repeat center center;
   background-size: cover;
   color: white;
@@ -140,7 +156,8 @@ body {
 .form-content {
   margin-left: 100px;
   margin-right: 100px;
-  width: 100%;
+  width: 640px;
+  align-items: stretch;
   padding: 0px;
   text-align: left;
   font-family: "Ubuntu", sans-serif;
@@ -177,9 +194,13 @@ body {
 
 .footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content:space-between;
   padding-top: 80px;
   background: white;
+}
+
+.step1-footer .footer{
+  justify-content: end;
 }
 
 .next-step-btn {
@@ -221,64 +242,64 @@ body {
 }
 
 .card.selected {
-  border-color: #554E92;
-  background-color: #F8F9FE;
+  border-color: #554e92;
+  background-color: #f8f9fe;
 }
 
 .billing-toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f8f9fe;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    position: relative;
-  }
-  
-  .billing-toggle span {
-    padding: 10px 50px;
-    cursor: pointer;
-  }
-  
-  .billing-toggle .active {
-    font-weight: bold;
-    color: #03285b;
-  }
-  
-  .billing-toggle .toggle-button {
-    position: absolute;
-    width: 50px;
-    height: 25px;
-    background-color: #03285b;
-    border-radius: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; 
-    padding: 2px;
-    transition: all 0.3s;
-  }
-  
-  .billing-toggle .toggle-button.yearly {
-    justify-content: flex-start;
-  }
-  
-  .billing-toggle .toggle-button .knob {
-    width: 20px;
-    height: 20px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    transition: all 0.3s;
-  }
-  
-  .billing-toggle .toggle-button .knob.monthly {
-    transform: translateX(0);
-  }
-  
-  .billing-toggle .toggle-button .knob.yearly {
-    transform: translateX(25px);
-  }  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fe;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.billing-toggle span {
+  padding: 10px 50px;
+  cursor: pointer;
+}
+
+.billing-toggle .active {
+  font-weight: bold;
+  color: #03285b;
+}
+
+.billing-toggle .toggle-button {
+  position: absolute;
+  width: 50px;
+  height: 25px;
+  background-color: #03285b;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2px;
+  transition: all 0.3s;
+}
+
+.billing-toggle .toggle-button.yearly {
+  justify-content: flex-start;
+}
+
+.billing-toggle .toggle-button .knob {
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.billing-toggle .toggle-button .knob.monthly {
+  transform: translateX(0);
+}
+
+.billing-toggle .toggle-button .knob.yearly {
+  transform: translateX(25px);
+}
 
 .footer-buttons {
   display: flex;
@@ -287,10 +308,14 @@ body {
 
 .back-btn {
   background: transparent;
-  color: #03285b;
+  color: lightgrey;
   border: none;
   cursor: pointer;
-  justify-content:start;
+  justify-content: start;
+}
+
+.back-btn:hover{
+  color: #03285b;
 }
 
 .next-step-btn {
@@ -306,7 +331,8 @@ body {
   background: #021d4a;
 }
 
-.input-container, .input-container input {
+.input-container,
+.input-container input {
   width: 100%;
 }
 
@@ -314,4 +340,87 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.add-ons {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.add-on {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+.add-on.selected {
+  border-color: #554E92;
+  background-color: #f8f9fe;
+}
+
+.add-on-checkbox {
+  margin-right: 10px;
+}
+
+.add-on-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.add-on-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-on h3 {
+  margin-bottom: 5px;
+}
+
+.add-on p {
+  margin: 0;
+}
+
+.add-on .price {
+  margin-left: auto;
+  color: #534AAE;
+}
+
+.summary {
+  margin-bottom: 20px;
+}
+
+.summary-item {
+  margin-bottom: 10px;
+}
+
+.summary-item h3 {
+  margin-bottom: 5px;
+}
+
+.summary-item p {
+  margin: 0;
+}
+
+.total {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.confirm-btn {
+  padding: 15px 20px;
+  background: #03285b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 20px;
 }

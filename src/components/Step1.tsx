@@ -72,7 +72,9 @@ const Step1: React.FC = () => {
             placeholder="e.g. +1 234 567 890"
             error={errors.phone}
           />
-          <Footer showBackButton={false} />
+          <div className="step1-footer">
+            <Footer showBackButton={false} showConfirmButton={false} showNextButton={true}/>
+          </div>
         </form>
       </div>
     </div>
