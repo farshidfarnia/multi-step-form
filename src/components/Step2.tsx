@@ -78,7 +78,7 @@ const Step2: React.FC = () => {
           </div>
           {errors.plan && <p className="error">{errors.plan}</p>}
           <BillingToggle billing={billing} setBilling={setBilling} />
-          <Footer showBackButton onBack={handleBack} />
+          <Footer showBackButton={true} showNextButton={true} showConfirmButton={false} onBack={handleBack} />
         </form>
       </div>
     </div>

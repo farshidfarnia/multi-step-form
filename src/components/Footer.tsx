@@ -1,20 +1,23 @@
 import React from 'react';
 
 interface FooterProps {
+  className?: string; 
   showBackButton: boolean;
   showNextButton: boolean;
-  showConfirmButton: boolean;
+  showConfirmButton?: boolean;
   onBack?: () => void;
-  onNext?: () => void;
+  onSubmit?: () => void;
   onConfirm?: () => void;
+
 }
 
-const Footer: React.FC<FooterProps> = ({ showBackButton, showNextButton, showConfirmButton, onBack, onNext, onConfirm }) => {
+const Footer: React.FC<FooterProps> = ({ className = '', showBackButton, showNextButton, showConfirmButton, onBack, onSubmit, onConfirm }) => {
   return (
-    <div className="footer">
+    <div className={`footer ${className}`}>
       {showBackButton && <button type="button" className="back-btn" onClick={onBack}>Go Back</button>}
-      {showNextButton && <button type="button" className="next-step-btn" onClick={onNext}>Next Step</button>}
+      {showNextButton && <button type="submit" className="next-step-btn" onClick={onSubmit}>Next Step</button>}
       {showConfirmButton && <button type="button" className="confirm-btn" onClick={onConfirm}>Confirm</button>}
+
     </div>
   );
 }

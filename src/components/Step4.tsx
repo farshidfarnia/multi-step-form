@@ -19,13 +19,14 @@ const Step4: React.FC = () => {
     navigate('/confirmation'); 
   };
 
-  const { step1, step2, step3 } = formData;
+  const { step2, step3 } = formData;
 
   return (
     <div className="form-container">
       <SideBar activeStep={4} />
       <div className="form-content">
         <Header title="Finishing up" subtitle="Double-check everything looks OK before confirming." />
+        <form onSubmit={handleConfirm}>
         <div className="summary">
           <div className="summary-item">
             <h3>Plan: {step2.plan} ({step2.billing})</h3>
@@ -41,8 +42,9 @@ const Step4: React.FC = () => {
             <h3>Total: ${step3.addOns.length + (step2.plan === 'arcade' ? 9 : step2.plan === 'advanced' ? 12 : 15)}/mo</h3>
           </div>
         </div>
-        <Footer showBackButton onBack={handleBack} />
-        <button className="confirm-btn" onClick={handleConfirm}>Confirm</button>
+        <Footer showBackButton={true} showNextButton={false} showConfirmButton={true} onBack={handleBack} onConfirm={handleConfirm} />
+
+        </form>
       </div>
     </div>
   );

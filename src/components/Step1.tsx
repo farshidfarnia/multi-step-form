@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useFormContext } from "../context/FormContext";
 import Header from "./Header";
 import Footer from "./Footer";
-import CircleButton from "./CircleButton";
-import CircleButtonText from "./CircleButtonText";
 import "./styles.css";
 import { SideBar } from "./Sidebar";
 import { Input } from "./Input";
@@ -72,9 +70,7 @@ const Step1: React.FC = () => {
             placeholder="e.g. +1 234 567 890"
             error={errors.phone}
           />
-          <div className="step1-footer">
-            <Footer showBackButton={false} showConfirmButton={false} showNextButton={true}/>
-          </div>
+            <Footer className="step1-footer" showBackButton={false} showNextButton={true} />
         </form>
       </div>
     </div>

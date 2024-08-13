@@ -59,7 +59,7 @@ const Step3: React.FC = () => {
               onToggle={() => handleAddOnChange('customProfile')}
             />
           </div>
-          <Footer showBackButton onBack={handleBack} />
+          <Footer showBackButton={true} showNextButton={true} onBack={handleBack} />
         </form>
       </div>
     </div>
