@@ -4,7 +4,7 @@ import { useFormContext } from '../context/FormContext';
 import Header from './Header';
 import Footer from './Footer';
 import { SideBar } from "./Sidebar";
-import AddOnRow from './AddOnRow';
+import { AddOnRow } from './AddOnRow';
 import './styles.css';
 
 const Step3: React.FC = () => {

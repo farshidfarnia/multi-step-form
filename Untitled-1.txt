@@ -1,0 +1,26 @@
+- General
+    - The spacing on the header (✔)
+        - Between the header and the top of the card (✔)
+        - Between the header and the subheader (✔)
+    - Primary Button hover style
+    - The overal width of the card is too big
+    - Responsive design
+    - Sidebar: The space of the list from the top of the card (✔)
+- Step 1
+    - Input border color when there is an error
+- Step 2
+    - Card list (Plans)
+        - Hover style for the cards
+        - The width of the cards
+        - Monthly/Yearly functionality
+- Step 3
+    - Price vertical alignment
+    - Subtitle styling
+- Step 4
+    - The overal styling according to the design
+
+---
+
+- Like ´AddOnRow.tsx´, you can remove React.FC and add the interface to the prop object.
+- Like ´AddOnRow.tsx´, you better use explicit export over default export.
+- Try to remove ´any´ for the types and use the correct types.

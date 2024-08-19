@@ -17,7 +17,6 @@ const Footer: React.FC<FooterProps> = ({ className = '', showBackButton, showNex
       {showBackButton && <button type="button" className="back-btn" onClick={onBack}>Go Back</button>}
       {showNextButton && <button type="submit" className="next-step-btn" onClick={onSubmit}>Next Step</button>}
       {showConfirmButton && <button type="button" className="confirm-btn" onClick={onConfirm}>Confirm</button>}
-
     </div>
   );
 }
