@@ -2,7 +2,7 @@
     - The spacing on the header (✔)
         - Between the header and the top of the card (✔)
         - Between the header and the subheader (✔)
-    - Primary Button hover style
+    - Primary Button hover style (✔)
     - The overal width of the card is too big
     - Responsive design
     - Sidebar: The space of the list from the top of the card (✔)
