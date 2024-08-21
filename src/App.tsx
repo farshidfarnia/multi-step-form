@@ -5,10 +5,12 @@ import Step2 from "./components/Step2";
 import Step3 from "./components/Step3";
 import Step4 from "./components/Step4";
 import "./App.css";
+import { SideBar } from "./components/Sidebar";
 
 const App: React.FC = () => {
   return (
     <div className="App">
+      {/* <SideBar /> */}
       <Routes>
         <Route path="/" element={<Step1 />} />
         <Route path="/step2" element={<Step2 />} />

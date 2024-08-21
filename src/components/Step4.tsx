@@ -23,7 +23,7 @@ const Step4: React.FC = () => {
 
   return (
     <div className="form-container">
-      <SideBar activeStep={4} />
+      <SideBar />
       <div className="form-content">
         <Header title="Finishing up" subtitle="Double-check everything looks OK before confirming." />
         <form onSubmit={handleConfirm}>

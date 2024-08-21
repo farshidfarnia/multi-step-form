@@ -13,12 +13,11 @@ const Step1: React.FC = () => {
   const [email, setEmail] = useState(formData.step1?.email || "");
   const [phone, setPhone] = useState(formData.step1?.phone || "");
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const [activeStep, setActiveStep] = useState(1);
   const navigate = useNavigate();
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
-    if (!name.trim()) newErrors.name = 'This field is required';
+    if (!name.trim()) newErrors.name = 'This  field is required';
     if (!email.trim()) newErrors.email = 'This field is required';
     if (!phone.trim()) newErrors.phone = 'This field is required';
     return newErrors;
@@ -30,14 +29,13 @@ const Step1: React.FC = () => {
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length === 0) {
       setFormData({ ...formData, step1: { name, email, phone } });
-      setActiveStep(2);
       navigate("/step2");
     }
   };
 
   return (
     <div className="form-container">
-      <SideBar activeStep={activeStep} />
+      <SideBar />
       <div className="form-content">
         <Header
           title="Personal info"

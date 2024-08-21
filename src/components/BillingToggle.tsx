@@ -1,8 +1,9 @@
 import React from 'react';
+import { Billing } from './Step2';
 
 interface BillingToggleProps {
-  billing: string;
-  setBilling: (billing: string) => void;
+  billing: Billing;
+  setBilling: (billing: Billing) => void;
 }
 
 const BillingToggle: React.FC<BillingToggleProps> = ({ billing, setBilling }) => {

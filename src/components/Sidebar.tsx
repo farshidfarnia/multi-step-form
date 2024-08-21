@@ -1,27 +1,32 @@
+import { useLocation } from "react-router-dom";
 import CircleButton from "./CircleButton";
 import CircleButtonText from "./CircleButtonText";
 
-interface ISidebarProps {
-  activeStep: number;
-}
+const sidebarItems = [
+  { title: "YOUR INFO", stepPathname: "/" },
+  { title: "SELECT PLAN", stepPathname: "/step2" },
+  { title: "ADD-ONS", stepPathname: "/step3" },
+  { title: "SUMMARY", stepPathname: "/step4" },
+] as const;
 
-export const SideBar = ({ activeStep }: ISidebarProps) => {
-  const sidebarItems = [
-    "YOUR INFO",
-    "SELECT PLAN",
-    "ADD-ONS",
-    "SUMMARY",
-  ] as const;
+export const SideBar = () => {
+  const { pathname } = useLocation();
 
   return (
     <div className="sidebar">
       <ul>
-        {sidebarItems.map((sibebarItem, index) => {
+        {sidebarItems.map((sidebarItem, index) => {
           const step = index + 1;
+
+          const activeStep = pathname === sidebarItem.stepPathname;
+
           return (
-            <li className={activeStep === step ? "active" : ""}>
-              <CircleButton number={step} isActive={activeStep === step} />
-              <CircleButtonText text={sibebarItem} subtext={`STEP ${step}`} />
+            <li className={activeStep ? "active" : ""}>
+              <CircleButton number={step} isActive={activeStep} />
+              <CircleButtonText
+                text={sidebarItem.title}
+                subtext={`STEP ${step}`}
+              />
             </li>
           );
         })}

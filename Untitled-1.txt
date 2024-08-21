@@ -24,3 +24,12 @@
 - Like ´AddOnRow.tsx´, you can remove React.FC and add the interface to the prop object.
 - Like ´AddOnRow.tsx´, you better use explicit export over default export.
 - Try to remove ´any´ for the types and use the correct types.
+
+
+---
+
+
+- Active step in different steps
+    - Use Sidebar in the App instead
+
+- Add the types to the Step 3 like in the other steps

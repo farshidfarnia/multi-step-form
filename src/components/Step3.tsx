@@ -9,14 +9,12 @@ import './styles.css';
 
 const Step3: React.FC = () => {
   const { formData, setFormData } = useFormContext();
-  const [activeStep, setActiveStep] = useState(3);
   const [addOns, setAddOns] = useState(formData.step3?.addOns || []);
   const navigate = useNavigate();
 
   const handleNext = (event: React.FormEvent) => {
     event.preventDefault();
     setFormData({ ...formData, step3: { addOns } });
-    setActiveStep(4);
     navigate('/step4');
   };
 
@@ -32,7 +30,7 @@ const Step3: React.FC = () => {
 
   return (
     <div className="form-container">
-      <SideBar activeStep={activeStep} />
+      <SideBar />
       <div className="form-content">
         <Header title="Pick add-ons" subtitle="Add-ons help enhance your gaming experience." />
         <form onSubmit={handleNext}>

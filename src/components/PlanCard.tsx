@@ -1,9 +1,10 @@
 import React from 'react';
+import { Plan } from './Step2';
 
 interface PlanCardProps {
-  plan: string;
-  selectedPlan: string;
-  handlePlanSelect: (plan: string) => void;
+  plan: Plan;
+  selectedPlan: Plan;
+  handlePlanSelect: (plan: Plan) => void;
   imgSrc: string;
   title: string;
   price: string;
